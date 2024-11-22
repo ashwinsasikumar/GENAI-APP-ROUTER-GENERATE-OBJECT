@@ -65,7 +65,10 @@ main {
   background-color: #ccc;
   border-radius: 4px;
 }
-
+#info{
+  font-size: 15px;
+  color: rgb(171, 99, 44);
+}
 /* Title and Steps */
 h2 {
   font-size: 20px;

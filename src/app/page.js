@@ -37,7 +37,7 @@ export default function Home() {
     <div className="layout-container">
       {/* Header for Title */}
       <header className="header">Product Analyser</header>
-
+    <p id="info">This chatbot will tell you the ingridients and chemicals used in a consumer product</p>
       {/* Main Chat Container */}
       <main>
         <div className="project-container" ref={chatContainerRef}>
