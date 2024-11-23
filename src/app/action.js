@@ -14,7 +14,7 @@ const productSchema = z.object({
   })),
 });
 
-export async function handleGenerateProject(userInput) {
+export async function handleGenerateProduct(userInput) {
   try {
 
     console.log("User product:", userInput);
@@ -39,7 +39,7 @@ export async function handleGenerateProject(userInput) {
   } catch (error) {
     console.error("Error generating product information:", error);
     return { 
-      projectTitle: "Error: Could not generate a product information.", 
+      productTitle: "Error: Could not generate a product information.", 
       breakdownSteps: [],
     };
   }

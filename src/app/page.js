@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { handleGenerateProject } from "./action";
+import { handleGenerateProduct } from "./action";
 import Markdown from "react-markdown";
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (input) {
-      const generatedProduct = await handleGenerateProject(input);
+      const generatedProduct = await handleGenerateProduct(input);
       setProductData(
         generatedProduct || {
           productTitle: "Error: Could not generate product information.",
@@ -35,34 +35,28 @@ export default function Home() {
 
   return (
     <div className="layout-container">
-      {/* Header for Title */}
       <header className="header">Product Analyser</header>
     <p id="info">This chatbot will tell you the ingridients and chemicals used in a consumer product</p>
-      {/* Main Chat Container */}
       <main>
         <div className="project-container" ref={chatContainerRef}>
           <h1>{productData.productTitle}</h1>
           <div className="project-steps">
             {productData.breakdownSteps.map((step, index) => (
               <div key={index} className="project-step">
-                {/* Ingredients Section */}
                 <div className="ingi">
                   <h2>INGREDIENTS:</h2>
                   <p>{step.ingridients}</p>
                 </div>
-                {/* Harmful Chemicals Section */}
                 <div className="hc">
                   <h2>HARMFUL CHEMICALS:</h2>
                   <Markdown>{step.harmfullchemicals}</Markdown>
                 </div>
-                {/* Health Issue Section */}
                 {step.healthissue && (
                   <div className="code-snippet">
                     <h2>HEALTH ISSUE:</h2>
                     <p>{step.healthissue}</p>
                   </div>
                 )}
-                {/* Helpful Suggestion Section */}
                 {step.suggestion && (
                   <div className="resources">
                     <h2>HELPFUL SUGGESTION:</h2>
@@ -73,8 +67,6 @@ export default function Home() {
             ))}
           </div>
         </div>
-
-        {/* Input Form */}
         <form onSubmit={handleSubmit} className="input-form">
           <input
             type="text"
